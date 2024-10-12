@@ -1,0 +1,188 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f4f8;
+    min-height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    place-items: center;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    font-size: 1.8em;
+}
+
+.value-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.change-icon {
+    margin-left: 10px;
+    font-size: 0.8em;
+    cursor: pointer;
+    color: #00796b;
+    transition: transform 0.3s;
+}
+
+.change-icon:hover {
+    transform: rotate(180deg);
+    color: #00574b;
+}
+
+.metrics {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.metric {
+    background: #e1f5fe;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    transition: transform 0.2s;
+}
+
+.metric .value {
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #333;
+}
+
+.metric:hover {
+    transform: scale(1.05);
+}
+
+/* Disclaimer Styles */
+.disclaimer {
+    background-color: pink;
+    color: red;
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 20px;
+    font-size: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.disclaimer i {
+    margin-right: 8px;
+}
+
+h2 {
+    font-size: 1.5em;
+    color: #00796b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+h2 i {
+    margin-right: 8px;
+    font-size: 1.2em;
+}
+
+/* Heart Icon Blinking */
+.blinking-heart {
+    animation: blink-animation 1s steps(5, start) infinite;
+}
+
+@keyframes blink-animation {
+    to {
+        visibility: hidden;
+    }
+}
+
+/* Adjust canvas size for desktop */
+canvas {
+    width: 100% !important;
+    height: 200px !important;
+    max-height: 200px;
+}
+
+canvas:hover {
+    cursor: pointer;
+}
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Preloader Styles */
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.heart {
+    width: 50px;
+    height: 50px;
+    background-color: red;
+    clip-path: polygon(50% 100%, 100% 50%, 50% 25%, 0% 50%);
+    animation: heartbeat 1s infinite alternate;
+}
+
+@keyframes heartbeat {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.2);
+    }
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+    .container {
+        width: 95%;
+        /* Take almost full width on larger screens */
+    }
+
+    .metrics {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .metrics {
+        grid-template-columns: 1fr;
+    }
+
+    .metric {
+        max-width: none;
+    }
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Patient Health Monitoring</title>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Patient Health Monitoring</h1>
+        </header>
+        <main id="main-content" style="display: none;">
+            <div class="metrics">
+                <div class="metric" id="heartRate">
+                    <h2><i class="fas fa-heartbeat"></i> Heart Rate</h2>
+                    <div class="value-container">
+                        <p class="value">-- BPM</p>
+                    </div>
+                    <canvas id="heartRateChart"></canvas>
+                </div>
+                <div class="metric" id="spo2">
+                    <h2><i class="fas fa-lungs"></i> Oxygen Level</h2>
+                    <div class="value-container">
+                        <p class="value">-- %</p>
+                    </div>
+                    <canvas id="spo2Chart"></canvas>
+                </div>
+                <div class="metric" id="temperature">
+                    <h2><i class="fas fa-thermometer-half"></i> Temperature</h2>
+                    <div class="value-container">
+                        <p class="value">-- °C</p> <i class="fas fa-sync-alt change-icon"
+                            onclick="toggleTemperatureUnit()" title="Change Unit"></i>
+                    </div>
+                    <canvas id="temperatureChart"></canvas>
+                </div>
+            </div>
+            <!-- Disclaimer -->
+            <div class="disclaimer">
+                <i class="fas fa-exclamation-circle"></i>
+                These current readings are only indicative and will show actual readings when the actual hardware device
+                is connected.
+            </div>
+        </main>
+        <footer>
+            <p>© 2024 Patient Monitoring System by <b>EnvTech</b></p>
+        </footer>
+
+        <!-- Preloader -->
+        <div id="preloader" class="preloader">
+            <div class="heart"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
